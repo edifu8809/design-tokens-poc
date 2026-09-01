@@ -1,0 +1,18 @@
+<label class="app-input">
+  @if (label()) {
+    <span class="app-input-label">{{ label() }}</span>
+  }
+  <input
+    class="app-input-field"
+    [class.has-error]="errorMessage()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled"
+    [ngModel]="value"
+    (ngModelChange)="handleInput($event)"
+    (blur)="handleBlur()"
+  />
+  @if (errorMessage()) {
+    <span class="app-input-error">{{ errorMessage() }}</span>
+  }
+</label>

@@ -1,0 +1,60 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.gennius.gennius-blue}"
+      },
+      "primary-hover": {
+        "$type": "color",
+        "$value": "{color.gennius.blue-message}"
+      },
+      "primary-contrast": {
+        "$type": "color",
+        "$value": "{color.gennius.white}"
+      }
+    },
+    "surface": {
+      "background": {
+        "$type": "color",
+        "$value": "{color.gennius.white}"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "{color.neutral.50}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.neutral.200}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.gennius.black}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.gennius.marco-cel}"
+      },
+      "on-brand": {
+        "$type": "color",
+        "$value": "{color.gennius.white}"
+      }
+    },
+    "feedback": {
+      "success": {
+        "$type": "color",
+        "$value": "{color.gennius.green}"
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.gennius.canceled}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.gennius.orange}"
+      }
+    }
+  }
+}

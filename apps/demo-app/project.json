@@ -1,0 +1,100 @@
+{
+  "name": "demo-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/demo-app/src",
+  "tags": [],
+  "implicitDependencies": ["design-tokens"],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "dependsOn": ["design-tokens:build", "figma-tokens"],
+      "options": {
+        "outputPath": "dist/apps/demo-app",
+        "browser": "apps/demo-app/src/main.ts",
+        "tsConfig": "apps/demo-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/demo-app/public"
+          }
+        ],
+        "styles": [
+          "node_modules/@ionic/angular/css/core.css",
+          "node_modules/@ionic/angular/css/normalize.css",
+          "node_modules/@ionic/angular/css/structure.css",
+          "node_modules/@ionic/angular/css/typography.css",
+          "node_modules/@ionic/angular/css/display.css",
+          "node_modules/@ionic/angular/css/padding.css",
+          "node_modules/@ionic/angular/css/flex-utils.css",
+          "node_modules/@ionic/angular/css/text-alignment.css",
+          "libs/shared/design-tokens/dist/css/tokens.css",
+          "libs/shared/ui/src/styles/ionic-theme.scss",
+          "apps/demo-app/src/styles.scss"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "750kb",
+              "maximumError": "1.5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      }
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "dependsOn": ["design-tokens:build", "figma-tokens"],
+      "configurations": {
+        "production": {
+          "buildTarget": "demo-app:build:production"
+        },
+        "development": {
+          "buildTarget": "demo-app:build:development"
+        }
+      }
+    },
+    "figma-tokens": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/src/styles/_tokens.css"],
+      "options": {
+        "command": "node scripts/build-tokens.js",
+        "cwd": "apps/demo-app"
+      },
+      "cache": true,
+      "inputs": ["{projectRoot}/public/tokens.json", "{projectRoot}/scripts/build-tokens.js"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "demo-app:build",
+        "staticFilePath": "dist/apps/demo-app/browser",
+        "spa": true
+      }
+    }
+  }
+}

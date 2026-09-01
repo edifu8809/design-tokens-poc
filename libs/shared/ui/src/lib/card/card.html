@@ -1,0 +1,8 @@
+<article class="app-card">
+  @if (title()) {
+    <header class="app-card-header">{{ title() }}</header>
+  }
+  <div class="app-card-body">
+    <ng-content />
+  </div>
+</article>

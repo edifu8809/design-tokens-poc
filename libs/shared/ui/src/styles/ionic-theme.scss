@@ -1,0 +1,38 @@
+// Bridges our semantic design tokens (libs/shared/design-tokens) onto Ionic's own
+// CSS variable contract, so `<ion-button color="primary">`, `<ion-card>`, etc. pick up
+// whichever brand/theme is active via `[data-brand]`/`[data-theme]` on <html> — no Ionic
+// component needs to be touched or restyled directly.
+:root {
+  --ion-color-primary: var(--color-brand-primary);
+  --ion-color-primary-shade: color-mix(in srgb, var(--color-brand-primary) 88%, black);
+  --ion-color-primary-tint: color-mix(in srgb, var(--color-brand-primary) 92%, white);
+  --ion-color-primary-contrast: var(--color-text-on-brand);
+
+  --ion-color-success: var(--color-feedback-success);
+  --ion-color-success-shade: color-mix(in srgb, var(--color-feedback-success) 88%, black);
+  --ion-color-success-tint: color-mix(in srgb, var(--color-feedback-success) 92%, white);
+
+  --ion-color-danger: var(--color-feedback-danger);
+  --ion-color-danger-shade: color-mix(in srgb, var(--color-feedback-danger) 88%, black);
+  --ion-color-danger-tint: color-mix(in srgb, var(--color-feedback-danger) 92%, white);
+
+  --ion-color-warning: var(--color-feedback-warning);
+  --ion-color-warning-shade: color-mix(in srgb, var(--color-feedback-warning) 88%, black);
+  --ion-color-warning-tint: color-mix(in srgb, var(--color-feedback-warning) 92%, white);
+
+  --ion-background-color: var(--color-surface-background);
+  --ion-text-color: var(--color-text-primary);
+  --ion-border-color: var(--color-surface-border);
+  --ion-item-background: var(--color-surface-elevated);
+  --ion-item-color: var(--color-text-primary);
+  --ion-toolbar-background: var(--color-surface-elevated);
+  --ion-card-background: var(--color-surface-elevated);
+
+  // ion-card-title/subtitle and other "step color" components don't read
+  // --ion-text-color directly — they interpolate along Ionic's step-color scale,
+  // which is only populated when one of Ionic's own palette stylesheets is loaded.
+  // We're not loading those (we drive theming from our own tokens), so pin the
+  // steps components actually fall back to instead of Ionic's hardcoded #262626/#e6e6e6.
+  --ion-text-color-step-150: var(--color-text-primary);
+  --ion-color-step-850: var(--color-text-primary);
+}

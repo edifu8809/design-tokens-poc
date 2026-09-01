@@ -1,0 +1,24 @@
+// --color-* custom properties compiled from the raw Figma export (public/tokens.json) by
+// scripts/build-tokens.js — run `npm run tokens:figma:build` to regenerate this file.
+// The bare specifier `styles/_tokens` would be ambiguous for Sass's partial resolution
+// (it only checks for `_tokens.scss`/`_tokens.sass`, never an underscore-prefixed `.css`),
+// so the extension has to be spelled out — `@use` then loads it as plain CSS and inlines it.
+@use 'styles/_tokens.css';
+
+// Ionic core CSS, tokens.css and ionic-theme.scss are registered as global styles in
+// project.json (build/serve `styles` array), in that exact order — Ionic's own `:root`
+// color defaults must load before our token bridge so our override wins the cascade
+// (same selector specificity, last one in source order wins).
+
+body {
+  margin: 0;
+  background: var(--color-surface-background);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+code {
+  background: var(--color-surface-border);
+  border-radius: var(--radius-sm);
+  padding: 0 4px;
+}

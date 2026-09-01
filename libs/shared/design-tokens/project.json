@@ -1,0 +1,20 @@
+{
+  "name": "design-tokens",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/design-tokens/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project design-tokens --web",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "node build.js",
+        "cwd": "libs/shared/design-tokens"
+      },
+      "cache": true,
+      "inputs": ["{projectRoot}/tokens/**/*.json", "{projectRoot}/build.js"]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "color": {
+    "brand": {
+      "primary": { "$type": "color", "$value": "{color.blue.400}" },
+      "primary-hover": { "$type": "color", "$value": "{color.blue.300}" },
+      "primary-contrast": { "$type": "color", "$value": "{color.neutral.900}" }
+    },
+    "surface": {
+      "background": { "$type": "color", "$value": "{color.neutral.900}" },
+      "elevated": { "$type": "color", "$value": "{color.neutral.800}" },
+      "border": { "$type": "color", "$value": "{color.neutral.700}" }
+    },
+    "text": {
+      "primary": { "$type": "color", "$value": "{color.neutral.0}" },
+      "secondary": { "$type": "color", "$value": "{color.neutral.300}" },
+      "on-brand": { "$type": "color", "$value": "{color.neutral.900}" }
+    },
+    "feedback": {
+      "success": { "$type": "color", "$value": "{color.green.300}" },
+      "danger": { "$type": "color", "$value": "{color.red.300}" },
+      "warning": { "$type": "color", "$value": "{color.gold.300}" }
+    }
+  }
+}

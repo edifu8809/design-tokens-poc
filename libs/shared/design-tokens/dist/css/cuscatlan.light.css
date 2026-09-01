@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root[data-brand="cuscatlan"][data-theme="light"] {
+  --color-brand-primary: #c07f0e;
+  --color-brand-primary-hover: #8f5f0a;
+  --color-brand-primary-contrast: #ffffff;
+  --color-surface-background: #ffffff;
+  --color-surface-elevated: #f5f6f8;
+  --color-surface-border: #d3d6db;
+  --color-text-primary: #101216;
+  --color-text-secondary: #5f6773;
+  --color-text-on-brand: #101216;
+  --color-feedback-success: #1f9d55;
+  --color-feedback-danger: #d92d2d;
+  --color-feedback-warning: #e69c1f;
+}

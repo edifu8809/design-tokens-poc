@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root[data-brand="gennius"][data-theme="light"] {
+  --color-brand-primary: #0a40f2;
+  --color-brand-primary-hover: #4a71fa;
+  --color-brand-primary-contrast: #ffffff;
+  --color-surface-background: #ffffff;
+  --color-surface-elevated: #f5f6f8;
+  --color-surface-border: #d3d6db;
+  --color-text-primary: #000000;
+  --color-text-secondary: #6a6a6a;
+  --color-text-on-brand: #ffffff;
+  --color-feedback-success: #45c126;
+  --color-feedback-danger: #dd1414;
+  --color-feedback-warning: #ee9c20;
+}

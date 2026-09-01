@@ -1,0 +1,89 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Design Tokens PoC</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="catalog">
+    <section class="theme-switcher">
+      <div class="theme-switcher-group">
+        <span class="theme-switcher-label">Marca</span>
+        @for (brand of brands; track brand) {
+          <app-button
+            [variant]="theme.brand() === brand ? 'primary' : 'secondary'"
+            (click)="theme.setBrand(brand)"
+          >
+            {{ brand }}
+          </app-button>
+        }
+      </div>
+
+      <div class="theme-switcher-group">
+        <span class="theme-switcher-label">Modo</span>
+        @for (mode of modes; track mode) {
+          <app-button
+            [variant]="theme.mode() === mode ? 'primary' : 'secondary'"
+            [disabled]="!isModeSupported(mode)"
+            (click)="theme.setMode(mode)"
+          >
+            {{ mode }}
+          </app-button>
+        }
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <h2>app-button (shared/ui, tokens directos)</h2>
+      <div class="row">
+        <app-button variant="primary">Primary</app-button>
+        <app-button variant="secondary">Secondary</app-button>
+        <app-button variant="danger">Danger</app-button>
+        <app-button variant="primary" [disabled]="true">Disabled</app-button>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <h2>app-card (shared/ui, tokens directos)</h2>
+      <div class="row">
+        <app-card title="Puntos disponibles">
+          Consumo únicamente de <code>--color-*</code> / <code>--space-*</code> / <code>--radius-*</code>.
+        </app-card>
+        <app-card title="Multi-brand">
+          Cambiando marca/modo arriba, este card se re-pinta sin recompilar Angular.
+        </app-card>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <h2>app-input (shared/ui, tokens directos)</h2>
+      <div class="row">
+        <app-input label="Email" placeholder="nombre@banco.com" type="email" />
+        <app-input label="Con error" placeholder="Requerido" errorMessage="Este campo es obligatorio" />
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <h2>Componentes nativos de Ionic (vía puente --ion-color-*)</h2>
+      <div class="row">
+        <ion-button color="primary">ion-button primary</ion-button>
+        <ion-button color="success">ion-button success</ion-button>
+        <ion-button color="danger">ion-button danger</ion-button>
+      </div>
+      <div class="row">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>ion-card</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Este card usa los tokens nativos de Ionic, ya sobreescritos por
+            <code>libs/shared/ui/src/styles/ionic-theme.scss</code>.
+          </ion-card-content>
+        </ion-card>
+        <ion-item>
+          <ion-input label="ion-input" placeholder="Escribe algo" />
+        </ion-item>
+      </div>
+    </section>
+  </ion-content>
+</ion-app>
